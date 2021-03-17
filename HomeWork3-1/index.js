@@ -9,11 +9,13 @@ const post = {
     },
     comment: {
         firstName: "firstName",
-        lastName: "lastName"
+        lastName: "lastName",
+        commentBody: "commentBody"
     }
 };
 
 post.someFunction();
+console.log(post["comment"]);
 
 //Task 2
 function helloColleagues(company, team){
@@ -26,12 +28,7 @@ let schedule = {
 };
 
 function isEmpty(obj){
-    let arr = Object.keys(obj);
-    result = 0;
-    for (i in arr){
-        result++;
-    }
-    return Boolean(result);
+    return !Object.keys(obj).length;
 }
 
 console.log(isEmpty(schedule));
