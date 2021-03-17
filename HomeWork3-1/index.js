@@ -65,7 +65,7 @@ console.log(allSalaries(salaries));
 function biggestSalary(obj){
     max = 0;
     for (i in obj){
-        max = maxNumber(obj[i], max);
+        max = maxNumber(obj[i], max); // use function from task 2.2
     }
     return max;
 }
