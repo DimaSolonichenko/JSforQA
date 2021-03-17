@@ -79,7 +79,6 @@ let menu = { width: 200, height: 300, title: "My menu" };
 function multiplyNumeric(obj){
     for (i in obj){
         if (typeof(obj[i]) == "number") obj[i] = obj[i] * 2;
-        console.log(obj[i])
     }
 }
 multiplyNumeric(menu);
