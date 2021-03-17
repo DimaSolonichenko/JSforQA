@@ -13,7 +13,7 @@ console.log(d); // d = 1
 
 //Task 2
 
-let language = prompt("Enter the language").toLowerCase();
+let language = prompt("Enter the language").toCamelCase();
 
 switch(language){
     case ("chinese"):

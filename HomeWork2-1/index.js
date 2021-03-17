@@ -3,7 +3,7 @@
 let a = prompt("Insert a = ");
 let b = prompt("Insert b = ");
 
-let result = (a + b < 10)? "few": "many";
+let result = (a + b < 10) ? "few": "many";
 
 alert(`You have ${result} money`);
 
@@ -22,10 +22,10 @@ alert(result)
 
 const currentYear = new Date().getFullYear();
 
-let Name = prompt("What's your name?");
-alert("Hello, " + Name + "\nNice to meet you!");
+const name = prompt("What's your name?");
+alert(`Hello, ${name}\nNice to meet you!`);
 
-let year = prompt("Enter your  birthday year, please");
+const year = +prompt("Enter your  birthday year, please");
 let result = currentYear - year;
 
 alert(`You are ${result} years old\nIf you already had Birthday in ${currentYear}))`);
