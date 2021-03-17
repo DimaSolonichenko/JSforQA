@@ -40,8 +40,8 @@ console.log(isEmpty(schedule))
 //Task 2.2
 
 function maxNumber(a, b){
-    if(Number(a) == NaN || Number(b) == NaN)
-        return NaN
+    if(isNaN(Number(a)) || isNaN(Number(b)))  // Проверяем, что переданные значения можно преобразовать в number - в противном случае возвращаем NaN
+        return NaN; 
     return Number(a) > Number(b) ? a : b; 
 }
 console.log(maxNumber('a', 2));
@@ -53,7 +53,6 @@ let salaries = { Mykola: 250, Pavlo: 250, Petro: 500 }
 function allSalaries(obj){    
     let result = 0;
     for (i in obj){
-        console.log(i);
         result += Number(obj[i]);
     }
     return result;
