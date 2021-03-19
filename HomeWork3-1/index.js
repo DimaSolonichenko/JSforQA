@@ -4,7 +4,7 @@ const post = {
     author: "author",
     views: 0,
     isLive: false,
-    someFunction: function(){
+    someFunction: () => {
         console.log("Some value");
     },
     comment: {
@@ -23,11 +23,9 @@ function helloColleagues(company, team){
 }
 
 //Task 2.1
-let schedule = {
-    
-};
+let schedule = {};
 
-function isEmpty(obj){
+let isEmpty = (obj) => {
     return !Object.keys(obj).length;
 }
 
@@ -39,21 +37,32 @@ console.log(isEmpty(schedule))
 
 //Task 2.2
 
-function maxNumber(a, b){
-    if(isNaN(Number(a)) || isNaN(Number(b)))  // Проверяем, что переданные значения можно преобразовать в number - в противном случае возвращаем NaN
+/* 
+    Хочу, чтоб функция возвращала мне только "number" (Моя личная хотелка)
+    Если использовать условие (a && b && typeof a === 'number' && typeof b === ''number' ), то я не смогу передать в функцию string, который можно преобразовать в number
+    Например, maxNumber('3', 2)
+*/
+let maxNumber = (a, b) => {
+    if(a === null || b === null || isNaN(Number(a)) || isNaN(Number(b)))  // Добавил еще обработку типа null - если один из аргументов null, верну NaN
         return NaN; 
-    return Number(a) > Number(b) ? a : b; 
+    return Number(a) > Number(b) ? Number(a) : Number(b); // Добавил возврат числа, даже, если на входе был string
 }
-console.log(maxNumber('a', 2));
+console.log(maxNumber('5'/'2', 2)); // 2.5
+console.log(maxNumber(null, 2)); // NaN
+console.log(maxNumber(undefined, 2)); // NaN
+console.log(maxNumber('a'/2, 2)); // NaN
+console.log(maxNumber(undefined, 2)) // NaN
+console.log(maxNumber(0, '-2')) // 0
 
 //Task 3
 
-let salaries = { Mykola: 250, Pavlo: 250, Petro: 500 }
+let salaries = { Mykola: 250, Pavlo: 500, Petro: 250 }
 
-function allSalaries(obj){    
+let allSalaries = (obj) => {    
     let result = 0;
-    for (i in obj){
-        result += Number(obj[i]);
+
+    for (key in obj){
+        result += Number(obj[key]);
     }
     return result;
 }
@@ -61,12 +70,17 @@ console.log(allSalaries(salaries));
 
 //Task 3.1
 
-function biggestSalary(obj){
-    max = 0;
-    for (i in obj){
-        max = maxNumber(obj[i], max); // use function from task 2.2
-    }
-    return max;
+let biggestSalary = (obj) => {
+    let max = 0;
+    let highestPaidEmployee;   
+    
+    for (key in obj){
+        max = maxNumber(obj[key], max); // use function from task 2.2
+    } 
+    
+    highestPaidEmployee = Object.keys(obj).filter(key => obj[key] === max);  // Записываем в массив все ключи с макс значением
+
+    return [highestPaidEmployee, max];
 }
 
 console.log(biggestSalary(salaries));
@@ -75,9 +89,9 @@ console.log(biggestSalary(salaries));
 
 let menu = { width: 200, height: 300, title: "My menu" };
 
-function multiplyNumeric(obj){
-    for (i in obj){
-        if (typeof(obj[i]) == "number") obj[i] = obj[i] * 2;
+let multiplyNumeric = (obj) => {
+    for (key in obj){
+        if (typeof(obj[key]) == "number") obj[key] = obj[key] * 2;
     }
 }
 multiplyNumeric(menu);
