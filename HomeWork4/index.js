@@ -78,4 +78,4 @@ let movies = [
         return result;
     }
     
-    console.log(getTitles(movies));
+    console.log(getTitles(movies, 'asc'));

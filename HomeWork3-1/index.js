@@ -43,8 +43,10 @@ console.log(isEmpty(schedule))
     Например, maxNumber('3', 2)
 */
 let maxNumber = (a, b) => {
-    if(a === null || b === null || isNaN(Number(a)) || isNaN(Number(b)))  // Добавил еще обработку типа null - если один из аргументов null, верну NaN
-        return NaN; 
+    if(a === null || b === null || isNaN(Number(a)) || isNaN(Number(b))){  
+        console.log("Given data was invalid");
+        return NaN;
+    }
     return Number(a) > Number(b) ? Number(a) : Number(b); // Добавил возврат числа, даже, если на входе был string
 }
 console.log(maxNumber('5'/'2', 2)); // 2.5
@@ -56,7 +58,7 @@ console.log(maxNumber(0, '-2')) // 0
 
 //Task 3
 
-let salaries = { Mykola: 250, Pavlo: 500, Petro: 250 }
+let salaries = { Mykola: 500, Pavlo: 500, Petro: 250 }
 
 let allSalaries = (obj) => {    
     let result = 0;
@@ -72,6 +74,7 @@ console.log(allSalaries(salaries));
 
 let biggestSalary = (obj) => {
     let max = 0;
+    let result = {};
     let highestPaidEmployee;   
     
     for (key in obj){
@@ -79,8 +82,11 @@ let biggestSalary = (obj) => {
     } 
     
     highestPaidEmployee = Object.keys(obj).filter(key => obj[key] === max);  // Записываем в массив все ключи с макс значением
-
-    return [highestPaidEmployee, max];
+    for (let i = 0; i < highestPaidEmployee.length; i++){
+         result[highestPaidEmployee[i]] = max;
+    }
+    
+    return result;
 }
 
 console.log(biggestSalary(salaries));
