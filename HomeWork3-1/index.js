@@ -60,7 +60,7 @@ console.log(maxNumber(0, '-2')) // 0
 
 let salaries = { Mykola: 500, Pavlo: 500, Petro: 250 }
 
-let allSalaries = (obj) => {    
+const allSalaries = (obj) => {    
     let result = 0;
 
     for (key in obj){
@@ -72,7 +72,7 @@ console.log(allSalaries(salaries));
 
 //Task 3.1
 
-let biggestSalary = (obj) => {
+const biggestSalary = (obj) => {
     let max = 0;
     let result = {};
     let highestPaidEmployee;   
@@ -99,6 +99,7 @@ let multiplyNumeric = (obj) => {
     for (key in obj){
         if (typeof(obj[key]) == "number") obj[key] = obj[key] * 2;
     }
+    return obj;
 }
 multiplyNumeric(menu);
 console.log(menu);
