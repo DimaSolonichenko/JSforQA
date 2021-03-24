@@ -54,9 +54,7 @@ console.log(car.status());
 class CarColor extends Car{
     
     constructor (brand, model, color){
-        super();
-        this.brand = brand;
-        this.model = model;
+        super(brand, model);
         this.color = color;
     }
     carColor = () => {
