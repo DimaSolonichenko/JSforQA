@@ -60,7 +60,9 @@ let movies = [
     }
     console.log(bestMovies(movies));
     
-    
+    bestMovies(movies).forEach(() => {
+
+    })
     // asc - по убыванию, default - по возрастанию
     const sortByRating = (movies, sorting = '') => {
         return bestMovies(movies).sort((a, b) => {       
@@ -78,4 +80,4 @@ let movies = [
         return result;
     }
     
-    console.log(getTitles(movies));
+    console.log(getTitles(movies, 'asc'));
